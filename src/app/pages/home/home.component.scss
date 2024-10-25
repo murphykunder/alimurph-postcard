@@ -1,23 +1,49 @@
+// .home {
+//     min-width: 100vw;
+//     min-height: 100vh;
+//     background-color: #fff;
+//     background-image: url('../../../assets/images/footer_banner.png');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center bottom;
+// }
+
+// app-postcard-form {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+// @media (min-width: 768px) {
+//     .home {
+//         background-size: auto 20vh;
+//     }
+// }
+
+// @media (min-width: 1024px) {
+//     .home {
+//         background-size: auto 30vh;
+//     }
+// }
+
 .home {
     min-width: 100vw;
     min-height: 100vh;
-    background-color: rgb(247, 234, 236);
-}
-
-main {
-    min-height: 80vh;
-}
-footer {
-    position: relative;
-    height: 20vh;
+    background-image: url('../../../assets/images/birthday_pattern.png'), url('../../../assets/images/Love_pattern.jpg');
+    background-size: 50vw, 50vw;
+    background-repeat: repeat-y, repeat-y;
+    background-position: top left, top right;
+    background-color: rgb(255, 255, 255, 0.7);
+    background-blend-mode: overlay;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+}
 
-    img {
-        display: block;
-        max-height: 100%;
-        max-width: 100vw;
-    }
+.postcard-form {
+    background-color: #444de2;
+    width: 70%;
+    color: #fff;
+    min-height: 50vh;
 }
