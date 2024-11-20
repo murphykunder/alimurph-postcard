@@ -1,0 +1,140 @@
+.letter {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    --letter-title-font-size: 3.5em;
+}
+
+.letter.anniversary {
+    --letter-title-color: var(--global-tertiary-color);
+}
+
+.letter.birthday {
+    --letter-title-color: var(--global-secondary-color);
+}
+
+/************* letter page 1 *******************/
+.letter .page-1 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    color: var(--letter-title-color);
+    animation: page-1-fade-out 1s var(--page-1-fade-out-delay) ease-in-out forwards;
+}
+@keyframes page-1-fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/************* letter page 1 - Title *******************/
+.letter .page-1 h1 {
+    font-family: 'Mountains_of_Christmas_Bold';
+    line-height: 1.3em;
+    font-size: inherit;
+    text-align: center;
+    text-transform: capitalize;
+    opacity: 0;
+    padding: 0.3em;
+    animation: letter-title-fade-in 1s var(--letter-title-fade-in-delay) ease-in-out forwards;
+}
+
+@keyframes letter-title-fade-in {
+    0% {
+        font-size: inherit;
+        opacity: 0;
+    }
+    60% {
+        font-size: var(--letter-title-font-size);
+        opacity: 0;
+    }
+    100% {
+        font-size: var(--letter-title-font-size);
+        opacity: 1;
+    }
+}
+
+
+
+/************* letter page 1 - Cake *******************/
+app-cake {
+    z-index: 6;
+    opacity: 0;
+    animation: cake-fade-in 1s var(--cake-fade-in-delay) ease-in-out forwards;
+}
+@keyframes cake-fade-in {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+/************* letter page 2 *******************/
+.letter .page-2 {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 1em;
+    overflow-y: auto;
+    align-items: center;
+    border: 1px dashed #333;
+    background-color: var(--global-tertiary-color);
+    animation: page-2-fade-in 1.5s var(--page-2-fade-in-delay) ease-in-out forwards /* show page 2 after page 1 title fade out */;
+    opacity:0;
+}
+@keyframes page-2-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+// customize the scrollbar width
+::-webkit-scrollbar {
+    width: 5px;
+}
+// customize scrollbar track
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+// customize scrollbar Handle
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 20px;
+  }
+
+
+@media (min-width: 768px) {
+
+    .letter {
+        --letter-title-font-size: 5em;
+    }
+    .letter .page-1 h1 {
+        line-height: 1.3em;
+    }
+}
+@media (min-width: 1024px) {
+
+    .letter {
+        --letter-title-font-size: 7em;
+    }
+}

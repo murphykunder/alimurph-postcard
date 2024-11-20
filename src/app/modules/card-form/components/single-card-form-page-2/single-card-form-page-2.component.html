@@ -1,0 +1,34 @@
+<form [formGroup]="birthdayForm" novalidate (ngSubmit)="onSubmit()">
+    <h1>Select the audio to play when the card loads</h1>
+    <div class="audio-group mb-4">
+        <input type="radio" class="btn-check" name="audio" id="audio0" formControlName="audio" value="" autocomplete="off" (change)="onAudioChange()">
+        <label class="btn-audio" for="audio0">
+            <h1>No audio</h1>
+        </label>
+        @for (audio of audioList; track $index) {
+            <input type="radio"
+                class="btn-check"
+                name="audio"
+                id="audio{{audio.id}}"
+                formControlName="audio"
+                value="{{audio.id}}"
+                autocomplete="off"
+                (change)="onAudioChange($index.toString())"
+            >
+            <label class="btn-audio" for="audio{{audio.id}}">
+                <h1>{{ audio.name }}</h1>
+                <div class="waveform-group">
+                    <button class="button"
+                        [class.play]="!isPlaying($index)"
+                        [class.pause]="isPlaying($index)" type="button"
+                        (click)="onPlayPause($index)"
+                        [disabled]="!isChecked(audio.id)"
+                    >
+                    </button>
+                    <div class="waveform" id="waveform{{audio.id}}" class="my-2"></div>
+                </div>
+            </label>
+        }
+    </div>
+    <app-nav-button [active]="2" (return)="onReturn()"/>
+</form>

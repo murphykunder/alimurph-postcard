@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+    /* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('assets/fonts/JosefinSans/JosefinSans-VariableFont_wght.ttf');
+}
+
+@font-face{
+    font-family: 'Mountains_of_Christmas_Regular';
+    src: url('assets/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'Mountains_of_Christmas_Bold';
+    src: url('assets/fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf');
+}
+
+:root {
+    --global-font-family: 'JosefinSans';
+    --global-font-size: 0.8em;
+    --global-font-weight: 350;
+    --global-font-color: #000;
+    --global-letter-spacing: 0.05em;
+    --global-primary-color: #444de2;
+    --global-secondary-color: #ffff00;
+    --global-tertiary-color: #fff;
+    --global-button-hover-bg-color: #eaeefe;
+    --global-button-hover-color: #6472aa;
+    --global-button-border-radius: 8px;
+    --button-success-bg-color: #a0ff4e;
+    --button-success-color: #3b6319;
+    --button-success-border-color: #a0ff4e;
+    --button-danger-bg-color: #ff0000;
+    --button-danger-color: #fff;
+    --button-danger-border-color: #ff0000;
+    --footer-height: 40px;
+    --cake-fade-in-delay: 3.5s;
+    --letter-title-fade-in-delay: calc(var(--cake-fade-in-delay) + 1s);
+    --page-1-fade-out-delay: calc(var(--letter-title-fade-in-delay) + 6.5s);
+    --page-2-fade-in-delay: calc(var(--page-1-fade-out-delay) + 2.5s);
+    --btn-export-fade-in-delay: calc(var(--page-2-fade-in-delay) + 2s);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html * {
+    font-family: var(--global-font-family);
+}
+
+
+
+/**** Common CSS ****/
+.button {
+    background-color: var(--global-secondary-color);
+    border: 1px dashed var(--global-secondary-color);
+    border-radius: var(--global-button-border-radius);
+    font-size: var(--global-font-size);
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button:hover:enabled {
+    outline: none;
+    background-color: transparent;
+    color: var(--global-secondary-color);
+}
+.button-circle {
+    border-radius: 100%;
+    width: calc( var(--global-font-size) + 1.5em );
+    height: calc( var(--global-font-size) + 1.5em );
+    padding: 0;
+}
+.button-success {
+    background-color: var(--button-success-bg-color);
+    color: var(--button-success-color);
+    border-color: var(--button-success-border-color);
+}
+.button-success:hover:enabled {
+    color: var(--button-success-bg-color) !important;
+}
+.button-danger {
+    background-color: var(--button-danger-bg-color);
+    color: var(--button-danger-color);
+    border-color: var(--button-danger-border-color);
+}
+.button-danger:hover:enabled {
+    color: var(--button-danger-bg-color) !important;
+}
+.button:active:enabled {
+    transition: 0s all;
+    transform: scale(0.9);
+}
+
+
+
+
+@media (min-width: 768px) {
+
+    :root {
+        --global-font-size: 1em;
+    }
+}

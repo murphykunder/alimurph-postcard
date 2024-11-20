@@ -1,0 +1,341 @@
+.postcard-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto var(--footer-height);
+    background-size: 250px;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    background-blend-mode: overlay;
+}
+
+.postcard-container.birthday {
+    background-image: url('../../../../../assets/images/Birthday_Pattern.jpg');
+}
+
+.postcard-container.anniversary { 
+    background-image: url('../../../../../assets/images/Love_pattern.jpg');
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/****************** Envelop wrapper or back cover *******************/
+.envelope-wrapper {
+    height: var(--envelope-height);
+    width: var(--envelope-width);
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--envelope-inner-color);
+    box-shadow: 0px 2px 8px #807276;
+    z-index: 0;
+    --envelope-width: 250px;
+    --envelope-height: 200px;
+    --envelope-border-y: calc(var(--envelope-height)/2);
+    --envelope-border-x: calc(var(--envelope-width)/2);
+    --envelope-btn-size: 30px;
+    --envelope-btn-top: calc(calc(var(--envelope-height)/2) - calc(var(--envelope-btn-size)/2));
+
+}
+.envelope-wrapper.anniversary {
+    --envelope-inner-color:#fbfaf7;
+    --envelope-border-left-color: #e0ddda;
+    --envelope-border-right-color: #eceae6 ;
+    --envelope-lid-color: #f9f6f2 ;
+    --poststamp-color: #615f5e;
+    --poststamp-text-color: #615f5e;
+    --poststamp-background-color: transparent;
+    --letter-background-color: #b6042a;
+}
+.envelope-wrapper.birthday {
+    --envelope-inner-color:#fbfaf7;
+    --envelope-border-left-color: #daa85e;
+    --envelope-border-right-color: #d69e49 ;
+    --envelope-lid-color: #e3bb84;
+    --poststamp-color: #acbcf9;
+    --poststamp-text-color: #464444;
+    --poststamp-background-color: #5162bc;
+    --letter-background-color: var(--global-primary-color);
+}
+.envelope-wrapper .title {
+    position: absolute;
+    padding: 0.5em;
+    z-index: 0;
+    top: -90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.envelope-wrapper .title h6 {
+    font-size: calc(var(--global-font-size) + 0.2em);
+    margin: 0.2em;
+}
+.envelope-wrapper .title p {
+    font-size: calc(var(--global-font-size) - 0.2em);
+    margin: 0;
+    text-align: center;
+}
+
+/****************** Envelop from: and poststamp *******************/
+.envelope-label {
+    z-index: 5;
+    font-family: var(--global-font-family);
+    color: var(--poststamp-color);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.envelope-label > p {
+    margin: 8px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    font-size: var(--global-font-size);
+    color: var(--poststamp-text-color);
+}
+
+.envelope-label .post-stamp {
+    width: 35px;
+    height: 45px;
+    margin: 8px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    border: 1px dashed var(--poststamp-color);
+    background-color: var(--poststamp-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.fa-champagne-glasses, .fa-cake-candles {
+    font-size: 20px;
+}
+
+
+
+/****************** Envelope front cover *******************/
+.envelope {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: var(--envelope-border-y) solid transparent;
+    border-right: var(--envelope-border-x) solid var(--envelope-border-right-color);
+    border-bottom: var(--envelope-border-y) solid var(--envelope-border-right-color);
+    border-left: var(--envelope-border-x) solid var(--envelope-border-left-color);
+    z-index: 3;  // it should overlay the letter
+}
+
+
+
+/****************** Envelope Lid *******************/
+.lid {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-right: var(--envelope-border-x) solid transparent;
+    border-left: var(--envelope-border-x) solid transparent;
+    border-bottom: var(--envelope-border-y) solid transparent;
+    transform-origin: top;
+    transition: transform 0.25s linear;
+}
+/* displayed when lid is closed */
+.lid.one {
+    border-top: var(--envelope-border-y) solid var(--envelope-lid-color);
+    transform: rotateX(0deg);
+    z-index: 3;
+    transition-delay: 0.75s;
+}
+/* displayed when lid is open */
+.lid.two {
+    border-top: var(--envelope-border-y) solid var(--envelope-inner-color);
+    transform: rotateX(90deg);
+    z-index: 1;
+    transition-delay: 0.5s;
+}
+/* lid open and close animation */
+.lid.one.open {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+/* lid open and close animation */
+.lid.two.open {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+
+
+/****************** Envelope button *******************/
+.btn-open-envelope {
+    z-index: 5;  // should appear above the envelope front cover
+    position: absolute;
+    width: var(--envelope-btn-size);
+    height: var(--envelope-btn-size);
+    top: var(--envelope-btn-top);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--envelope-btn-size);
+    border: none;
+    background-color: transparent;
+    border-radius: 100%;
+    box-shadow: 0 0px 10px 10px #feffd2;  //glow
+}
+.btn-open-envelope:focus {
+    outline: none;
+    box-shadow: none;
+}
+.fa-heart, .fa-certificate{
+    width: calc(var(--envelope-btn-size) + 20px);
+    height: calc(var(--envelope-btn-size) + 20px);
+}
+.fa-heart{
+    color: #b6042a;
+}
+.fa-certificate{
+    color: #c7522a;
+}
+/* animate the button glow until the envelope is opened */
+.btn-open-envelope.play{
+    animation: btn-open-envelope-flick 1s ease-in-out infinite;
+}
+@keyframes btn-open-envelope-flick {
+    0% {
+        box-shadow: 0 0px 10px 10px #feffd2;
+    }
+    50% {
+        box-shadow: 0 0px 20px 20px #feffd2;
+    }
+}
+
+
+
+
+/****************** Envelope Letter *******************/
+.letter-container {
+    position: absolute;
+    width: 80%;
+    min-height: 80%;
+    background-color: var(--letter-background-color);
+    z-index: 2; // above envelope-wrapper & below envelope front cover
+    transition: 0.5s;
+}
+/* zoom in the letter once envelope opens */
+.letter-container.open {
+    animation-name: letter-zoom-in;
+    animation-duration: 3s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes letter-zoom-in {
+    0% {
+        transform: translateY(0px);
+        z-index: 2;
+    }
+    40%{
+        transform: translateY(-130%);
+        width: 100%;
+        height: 90%;
+        z-index: 2;
+    }
+    50%{
+        transform: translateY(-130%);
+        width: 100%;
+        height: 90%;
+        z-index: 7;
+    }
+    80%{
+        transform: translateY(0%);
+        width: 60vw;
+        height: 60vh;
+        z-index: 7;
+    }
+    100%{
+        transform: translateY(0%);
+        width: 85vw;
+        height: 85vh;
+        z-index: 7;
+    }
+}
+
+
+.button-export {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+    opacity: 0;
+    font-size: calc(var(--global-font-size) - 0.2em);
+    padding: 5px 12px;
+    animation: btn-export-fade-in 1s var(--btn-export-fade-in-delay) ease-in-out forwards;
+}
+.button:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+}
+@keyframes btn-export-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid #000;
+    border-radius: 100%;
+    border-right-color: #fff;
+    animation: spinner 0.7s linear infinite;
+}
+@keyframes spinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@media (min-width: 768px) {
+
+    .postcard-container {
+        background-size: 14em;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    .postcard-container {
+        background-size: 18em;
+    }
+
+}

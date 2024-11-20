@@ -1,0 +1,10 @@
+.form-field-error {
+    color: #ff0037;
+    font-size: calc(var(--global-font-size) - 0.1em);
+    margin-bottom: 0;
+    letter-spacing: var(--global-letter-spacing);
+}
+
+.form-field-error::before {
+    content: '* ';
+}

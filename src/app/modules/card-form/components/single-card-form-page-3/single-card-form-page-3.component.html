@@ -1,0 +1,8 @@
+<form [formGroup]="birthdayForm" novalidate (ngSubmit)="onSubmit()">
+    <ckeditor class="ckeditor" [editor]="Editor" formControlName="message" id="message" [config]="config"></ckeditor>
+    <div class="ckeditor-message-group my-1">
+        <app-form-field-error [control]="message" [isFormSubmitted]="isSubmitted" />
+        <p class="message-count">Characters: {{ this.messageCharacterCount }}</p>
+    </div>
+    <app-nav-button [active]="3" [isSubmitting]="isSubmitting" (return)="onReturn()"/>
+</form>

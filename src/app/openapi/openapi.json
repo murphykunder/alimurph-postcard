@@ -1,0 +1,149 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenApi Specification - AliMurph-Postcard",
+    "description": "OpenApi documentation for Alimurph-Postcard",
+    "termsOfService": "Terms of Service",
+    "contact": {
+      "name": "AliMurph-Postcard"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8088/api/v1",
+      "description": "Local environment"
+    }
+  ],
+  "paths": {
+    "/postcard/create": {
+      "post": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "createCard",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Postcard"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostcardCreateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/postcard/view": {
+      "get": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "viewCard",
+        "parameters": [
+          {
+            "name": "cardId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Postcard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/postcard/export": {
+      "get": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "export",
+        "parameters": [
+          {
+            "name": "cardId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Postcard": {
+        "required": [
+          "from",
+          "message",
+          "occasion",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "occasion": {
+            "type": "string"
+          },
+          "audio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "PostcardCreateResponse": {
+        "type": "object",
+        "properties": {
+          "cardId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

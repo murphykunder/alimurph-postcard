@@ -1,0 +1,25 @@
+form {
+    width: 90%;
+    margin: auto;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 30vh;
+    color: black;
+    font-size: var(--global-font-size);
+}
+
+.ckeditor-message-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5%;
+    font-size: var(--global-font-size);
+    font-weight: var(--global-font-weight);
+}
+
+.ckeditor-message-group .message-count {
+    white-space: nowrap;
+    margin-bottom: 0.5em;
+    font-size: calc(var(--global-font-size) - 0.1em);
+}

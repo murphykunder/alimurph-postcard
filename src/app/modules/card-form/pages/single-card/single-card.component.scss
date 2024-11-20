@@ -1,0 +1,164 @@
+.single-card-container {
+    background-image: url('../../../../../assets/images/Backdrop.jpg');
+    background-size: 250px;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+    background-blend-mode: overlay;
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-card-form {
+    width: 80%;
+    min-height: fit-content;
+    border-radius: 8px;
+    background-color: var(--global-primary-color);
+    color: var(--global-tertiary-color);
+    z-index: 0;
+    padding: 5%;
+}
+
+.single-card-form > h1 {
+    position: relative;
+    text-align: center;
+    letter-spacing: var(--global-letter-spacing);
+    font-size: calc(var(--global-font-size) + 0.05em);
+    font-weight: var(--global-font-weight);
+    margin-bottom: 20px;
+}
+
+
+
+/************* Progress bar **************/
+.progressbar {
+    position: relative;
+    margin-bottom: 35px;
+    --pgb-color-inactive: rgb(255,255,255,0.3);
+    --pgb-color-active: rgb(255,255,255,1);
+}
+.progressbar li{
+    list-style-type: none;
+    position: relative;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    font-size: calc(var(--global-font-size) - 0.1em);
+    font-weight: var(--global-font-weight);
+    letter-spacing: var(--global-letter-spacing);
+    color: var(--pgb-color-inactive);
+}
+.progressbar li::before{
+    font-family: 'Font Awesome 6 Free';
+    font: var(--fa-font-solid);
+    content: '';
+    font-size: 1.3em;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px auto;
+    border: 1px dashed var(--pgb-color-inactive);
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--global-primary-color);
+    color: rgba($color: #fff, $alpha: 0.3);
+    z-index: 0;
+}
+.progressbar li::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: repeating-linear-gradient(90deg,var(--pgb-color-inactive) 0 2px,transparent 0 4px);
+    top: 20px;
+    left: -50%;
+    z-index: -1;
+}
+.progressbar li:first-child::before {
+    content: '\f007';
+}
+.progressbar li:nth-child(2)::before {
+    content: '\f001';
+}
+.progressbar li:last-child::before {
+    content: '\f0e0';
+}
+
+.progressbar li:first-child::after {
+    content: none;
+}
+.progressbar li.active {
+    color: var(--pgb-color-active);
+}
+.progressbar li.active::before {
+    border-color: var(--global-secondary-color);
+    background-color: var(--global-secondary-color);
+    color: var(--global-primary-color);
+}
+.progressbar li.active + li.active::after{
+    background: repeating-linear-gradient(90deg,var(--pgb-color-active) 0 2px,transparent 0 4px);
+}
+
+
+/**** Common Form CSS *****/
+.form-label {
+    margin-bottom: 0.1em;
+    font-size: var(--global-font-size);
+    font-weight: var(--global-font-weight);
+    letter-spacing: var(--global-letter-spacing);
+}
+.form-control{
+    font-size: var(--global-font-size);
+}
+.form-control:invalid {
+    border-color: 1px solid #ff0037;
+}
+.form-select * {
+    font-size: var(--global-font-size);
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border: 2px solid var(--global-secondary-color);
+}
+
+
+
+
+
+
+@media (min-width:768px) {
+
+    .single-card-form {
+        width: 70%;
+    }
+}
+@media (min-width:1024px) {
+
+    .single-card-form {
+        width: 80%;
+        min-height: fit-content;
+        border-radius: 8px;
+        background-color: var(--global-primary-color);
+        color: var(--global-tertiary-color);
+        z-index: 0;
+        padding: 4%;
+    }
+
+}
+@media (min-width: 1440px) {
+
+    .single-card-form {
+        width: 60%;
+    }
+}
+@media (min-width: 2560px) {
+
+    .single-card-form {
+        width: 50%;
+    }
+}

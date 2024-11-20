@@ -1,0 +1,33 @@
+<div class="modal-body">
+    <button type="button" class="button-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="modal-message">
+        <div *ngIf="cardUrl; else error">
+            <h6>Send this link:</h6>
+            <div class="input-icon-group">
+                <input class="form-control" disabled type="text" id="cardUrl" [value]="cardUrl">
+                <button type="button" class="btn-copy"
+                    placement="bottom"
+                    ngbTooltip="Copied!"
+                    tooltipClass="button-copy-tooltip"
+                    triggers="manual"
+                    [animation]="true"
+                    #t1="ngbTooltip"
+                    (click)="onCopy(t1)"
+                >
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+            <div class="text-center">
+                <small>
+                    <i>(You can copy + paste the link in a browser to preview the card before sending)</i>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #error>
+    <p class="text-error">{{ errorMessage }}</p>
+</ng-template>

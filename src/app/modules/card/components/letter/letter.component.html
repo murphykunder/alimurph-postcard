@@ -1,0 +1,10 @@
+<div class="letter" [class.anniversary]="occasion=='anniversary'" [class.birthday]="occasion=='birthday'">
+    <ng-container *ngIf="isEnvelopeOpen">
+        <div class="page-1">
+            <h1>Happy {{ occasion }} {{ receiverName }}</h1>
+              <app-cake [occasion]="occasion"/>
+        </div>
+        <div class="page-2" [innerHTML]="message ? sanitizer.bypassSecurityTrustHtml(message) : ''">
+        </div>
+    </ng-container>
+</div>

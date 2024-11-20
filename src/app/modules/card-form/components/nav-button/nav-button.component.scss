@@ -1,0 +1,27 @@
+.nav-button {
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.fa-pencil {
+    font-size: calc(var(--global-font-size) - 0.2em);
+}
+
+.spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid var(--global-primary-color);
+    border-radius: 100%;
+    border-right-color: #c0cdfb;
+    animation: spinner 0.7s linear infinite;
+}
+@keyframes spinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,40 @@
+<div *ngIf="cardData">
+    <div class="postcard-container" [class.birthday]="occasion=='birthday'" [class.anniversary]="occasion=='anniversary'">
+        <main>
+            <div class="envelope-wrapper" [class.anniversary]="occasion=='anniversary'" [class.birthday]="occasion=='birthday'">
+                <div class="title">
+                    <h6>You have a message!</h6>
+                    <p>Click on the glowing button at center to open your envelope. <span *ngIf="audio">Keep audio on <i class="fa-solid fa-volume-high"></i></span></p>
+                </div>
+                <div class="envelope-label">
+                    <p>From:<br>{{senderName}}</p>
+                    <div class="post-stamp">
+                        <i class="fa-solid" [class.fa-champagne-glasses]="occasion=='anniversary'" [class.fa-cake-candles]="occasion=='birthday'"></i>
+                    </div>
+                </div>
+                <div class="lid one" [class.open]="envelopeOpen"></div>
+                <div class="lid two" [class.open]="envelopeOpen"></div>
+                <div class="envelope"></div>
+                <div class="letter-container" [class.open]="envelopeOpen">
+                    <app-letter [isEnvelopeOpen]="envelopeOpen" [cardData]="cardData" />
+                </div>
+                <button type="button" class="btn-open-envelope"
+                    [class.play]="!envelopeOpen"
+                    (click)="openEnvelope()"
+                >
+                    <i class="fa-solid" [class.fa-heart]="occasion=='anniversary'" [class.fa-certificate]="occasion=='birthday'"></i>
+                </button>
+            </div>
+            <button *ngIf="cardData" type="button" class="button button-export mb-2" (click)="exportCard()">
+                <span *ngIf="!isDownloading; else loading">
+                    <i class="fa-solid fa-download"></i>
+                </span>
+                &nbsp;&nbsp;Download letter
+            </button>
+        </main>
+        <app-footer />
+    </div>
+</div>
+<ng-template #loading>
+    <span class="spinner"></span>
+</ng-template>

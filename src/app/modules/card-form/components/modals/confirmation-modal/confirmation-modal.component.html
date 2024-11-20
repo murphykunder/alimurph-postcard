@@ -1,0 +1,14 @@
+<div class="modal-container">
+    <button type="button" class="button-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="modal-body" *ngIf="message">
+        <p>
+            {{ message }}
+        </p>
+        <div class="button-container">
+            <button type="button" class="button button-danger" (click)="onCancel()">Cancel</button>
+            <button type="button" class="button button-success" (click)="onConfirm()">Confirm</button>
+        </div>
+    </div>
+</div>
