@@ -11,7 +11,7 @@ import { PostcardService } from './services/services';
 })
 export class AppComponent implements OnInit {
   title = 'alimurph-postcard-ui';
-  
+
   constructor(
     private postcardService: PostcardService
   ){}

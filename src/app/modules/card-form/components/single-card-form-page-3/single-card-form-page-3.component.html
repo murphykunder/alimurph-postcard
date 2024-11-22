@@ -1,9 +1,6 @@
 <form [formGroup]="birthdayForm" novalidate (ngSubmit)="onSubmit()">
-	<label class="form-label" for="message">
-        <p class="m-0">Your message (Maximum {{messageMaxLength}} characters allowed):</p>
-        <p class="m-0 sub-label">
-            <i>Note: Avoid using complex emojis as they could be rendered incorrectly in PDF</i>
-        </p>
+	<label class="form-label form-label-sm" for="message">
+        <i>Note: Avoid using complex emojis as they could be rendered incorrectly in PDF</i>
     </label>
     <ckeditor class="ckeditor" [editor]="Editor" formControlName="message" id="message" [config]="config"></ckeditor>
     <div class="ckeditor-message-group my-1">

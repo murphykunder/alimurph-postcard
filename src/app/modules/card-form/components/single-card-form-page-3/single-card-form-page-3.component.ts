@@ -18,13 +18,13 @@ import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirm
 export class SingleCardFormPage3Component {
 
   @Input() birthdayForm!: FormGroup;
+  @Input() isSubmitting: boolean = false;
   @Output() return = new EventEmitter();
   @Output() createCard = new EventEmitter();
-  @Input() isSubmitting: boolean = false;
   public isSubmitted: boolean = false;
   public messageCharacterCount: number = 0;
   public messageMinLength: number = 8;
-  public messageMaxLength: number = 1500;
+  public messageMaxLength: number = 1400;
   public Editor = ClassicEditor;
 
   constructor(
@@ -32,6 +32,7 @@ export class SingleCardFormPage3Component {
   ){}
 
   public config = {
+      placeholder: "Your message (Maximum " + this.messageMaxLength + " characters allowed)...",
       toolbar: [ 'undo', 'redo', '|', 'bold', 'italic',
         'alignment','fontBackgroundColor', 'fontColor', 'fontFamily', 'fontSize',
         'heading', 'link'

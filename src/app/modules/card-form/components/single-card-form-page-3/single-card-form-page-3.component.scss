@@ -3,16 +3,9 @@ form {
     margin: auto;
 }
 
-label {
-    margin-bottom: 0.8em;
-}
-
-label p {
+.form-label-sm {
     line-height: 1.5em;
-}
-
-label .sub-label {
-    font-size: calc(var(--global-font-size) - 0.2em);
+    font-size: calc(var(--global-font-size) - 0.1em);
 }
 
 :host ::ng-deep .ck-editor__editable_inline {
