@@ -18,6 +18,8 @@ export class MainComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    // backend hosted on render.com which tends to spin down free instances which do not receive requests for more than 15 mins. The free instance takes approx 1 min to start up.
+    // To prevent slowness trigger call to backend when home page loads
       this.postcardService.getStatus().subscribe({
         next: (response) => console.log(response)
       })
