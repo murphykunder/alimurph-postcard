@@ -4,6 +4,10 @@
     margin: auto;
     position: relative;
     --letter-title-font-size: 3.5em;
+	--cake-fade-in-delay: 3.5s;
+    --letter-title-fade-in-delay: calc(var(--cake-fade-in-delay) + 1s);
+    --page-1-fade-out-delay: calc(var(--letter-title-fade-in-delay) + 6.5s);
+    --page-2-fade-in-delay: calc(var(--page-1-fade-out-delay) + 2.5s);
 }
 
 .letter.anniversary {

@@ -35,11 +35,7 @@
     --button-danger-color: #fff;
     --button-danger-border-color: #ff0000;
     --footer-height: 40px;
-    --cake-fade-in-delay: 3.5s;
-    --letter-title-fade-in-delay: calc(var(--cake-fade-in-delay) + 1s);
-    --page-1-fade-out-delay: calc(var(--letter-title-fade-in-delay) + 6.5s);
-    --page-2-fade-in-delay: calc(var(--page-1-fade-out-delay) + 2.5s);
-    --btn-export-fade-in-delay: calc(var(--page-2-fade-in-delay) + 2s);
+
 }
 
 html, body {

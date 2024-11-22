@@ -288,7 +288,7 @@ main {
     opacity: 0;
     font-size: calc(var(--global-font-size) - 0.2em);
     padding: 5px 12px;
-    animation: btn-export-fade-in 1s var(--btn-export-fade-in-delay) ease-in-out forwards;
+    animation: btn-export-fade-in 1s 3s ease-in-out forwards;
 }
 .button:hover {
     background-color: #fff;

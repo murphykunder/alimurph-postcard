@@ -15,6 +15,8 @@ import { createCard } from '../fn/postcard/create-card';
 import { CreateCard$Params } from '../fn/postcard/create-card';
 import { export$ } from '../fn/postcard/export';
 import { Export$Params } from '../fn/postcard/export';
+import { getStatus } from '../fn/postcard/get-status';
+import { GetStatus$Params } from '../fn/postcard/get-status';
 import { Postcard } from '../models/postcard';
 import { PostcardCreateResponse } from '../models/postcard-create-response';
 import { viewCard } from '../fn/postcard/view-card';
@@ -73,6 +75,35 @@ export class PostcardService extends BaseService {
   viewCard(params: ViewCard$Params, context?: HttpContext): Observable<Postcard> {
     return this.viewCard$Response(params, context).pipe(
       map((r: StrictHttpResponse<Postcard>): Postcard => r.body)
+    );
+  }
+
+  /** Path part for operation `getStatus()` */
+  static readonly GetStatusPath = '/postcard/status';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getStatus()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getStatus$Response(params?: GetStatus$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+}>> {
+    return getStatus(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getStatus$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getStatus(params?: GetStatus$Params, context?: HttpContext): Observable<{
+}> {
+    return this.getStatus$Response(params, context).pipe(
+      map((r: StrictHttpResponse<{
+}>): {
+} => r.body)
     );
   }
 

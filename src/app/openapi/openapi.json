@@ -5,15 +5,15 @@
     "description": "OpenApi documentation for Alimurph-Postcard",
     "termsOfService": "Terms of Service",
     "contact": {
-      "name": "AliMurph-Postcard"
+      "name": "Alimurph-Postcard"
     },
     "version": "1.0"
   },
   "servers": [
-    {
+	{
       "url": "http://localhost:8088/api/v1",
       "description": "Local environment"
-    }
+    },
   ],
   "paths": {
     "/postcard/create": {
@@ -69,6 +69,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Postcard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/postcard/status": {
+      "get": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "getStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
                 }
               }
             }
