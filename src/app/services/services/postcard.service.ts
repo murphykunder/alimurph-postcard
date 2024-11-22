@@ -87,8 +87,7 @@ export class PostcardService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getStatus$Response(params?: GetStatus$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-}>> {
+  getStatus$Response(params?: GetStatus$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
     return getStatus(this.http, this.rootUrl, params, context);
   }
 
@@ -98,12 +97,9 @@ export class PostcardService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getStatus(params?: GetStatus$Params, context?: HttpContext): Observable<{
-}> {
+  getStatus(params?: GetStatus$Params, context?: HttpContext): Observable<string> {
     return this.getStatus$Response(params, context).pipe(
-      map((r: StrictHttpResponse<{
-}>): {
-} => r.body)
+      map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 

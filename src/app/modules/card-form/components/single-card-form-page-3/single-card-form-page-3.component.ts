@@ -32,7 +32,6 @@ export class SingleCardFormPage3Component {
   ){}
 
   public config = {
-      placeholder: 'Enter your message here (Maximum ' + this.messageMaxLength + ' characters allowed)...',
       toolbar: [ 'undo', 'redo', '|', 'bold', 'italic',
         'alignment','fontBackgroundColor', 'fontColor', 'fontFamily', 'fontSize',
         'heading', 'link'

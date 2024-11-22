@@ -10,10 +10,10 @@
     "version": "1.0"
   },
   "servers": [
-	{
+    {
       "url": "http://localhost:8088/api/v1",
       "description": "Local environment"
-    },
+    }
   ],
   "paths": {
     "/postcard/create": {
@@ -86,9 +86,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "*/*": {
+              "text/plain": {
                 "schema": {
-                  "type": "object"
+                  "type": "string"
                 }
               }
             }
@@ -116,7 +116,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "*/*": {
+              "application/pdf": {
                 "schema": {
                   "type": "object"
                 }

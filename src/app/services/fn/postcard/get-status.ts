@@ -12,19 +12,17 @@ import { RequestBuilder } from '../../request-builder';
 export interface GetStatus$Params {
 }
 
-export function getStatus(http: HttpClient, rootUrl: string, params?: GetStatus$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-}>> {
+export function getStatus(http: HttpClient, rootUrl: string, params?: GetStatus$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
   const rb = new RequestBuilder(rootUrl, getStatus.PATH, 'get');
   if (params) {
   }
 
   return http.request(
-    rb.build({ responseType: 'blob', accept: '*/*', context })
+    rb.build({ responseType: 'text', accept: 'text/plain', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<{
-      }>;
+      return r as StrictHttpResponse<string>;
     })
   );
 }

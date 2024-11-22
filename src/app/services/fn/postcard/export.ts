@@ -21,7 +21,7 @@ export function export$(http: HttpClient, rootUrl: string, params: Export$Params
   }
 
   return http.request(
-    rb.build({ responseType: 'blob', accept: '*/*', context })
+    rb.build({ responseType: 'blob', accept: 'application/pdf', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
