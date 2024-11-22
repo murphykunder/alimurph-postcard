@@ -19,7 +19,7 @@ import { ModalContentComponent } from '../../components/modals/modal-content/mod
 })
 export class SingleCardComponent{
 
-  public active: number = 3;
+  public active: number = 1;
   public birthdayForm!: FormGroup;
   public isSubmitting: boolean = false;
   public cardId: string = '';
