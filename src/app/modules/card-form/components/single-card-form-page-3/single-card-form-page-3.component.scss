@@ -14,6 +14,15 @@ form {
     font-size: var(--global-font-size);
 }
 
+:host ::ng-deep .ck.ck-editor {
+    display: flex;
+    flex-direction: column-reverse;
+}
+:host ::ng-deep .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_smw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sme, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_s {
+    top: auto;
+    bottom: 100%;
+}
+
 .ckeditor-message-group {
     display: flex;
     flex-direction: row;

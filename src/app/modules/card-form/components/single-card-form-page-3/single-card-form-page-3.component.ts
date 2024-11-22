@@ -37,6 +37,7 @@ export class SingleCardFormPage3Component {
         'alignment','fontBackgroundColor', 'fontColor', 'fontFamily', 'fontSize',
         'heading', 'link'
       ],
+      toolbarLocation: 'bottom',
       fontSize: {
         options: [
             9,
