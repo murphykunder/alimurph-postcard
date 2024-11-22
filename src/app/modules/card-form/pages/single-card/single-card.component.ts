@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SingleCardFormPage1Component } from '../../components/single-card-form-page-1/single-card-form-page-1.component';
@@ -17,7 +17,7 @@ import { ModalContentComponent } from '../../components/modals/modal-content/mod
   styleUrl: './single-card.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class SingleCardComponent {
+export class SingleCardComponent{
 
   public active: number = 1;
   public birthdayForm!: FormGroup;
