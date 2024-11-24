@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './confirmation-modal.component.html',
-  styleUrl: './confirmation-modal.component.scss'
+  styleUrl: './confirmation-modal.component.scss',
 })
 export class ConfirmationModalComponent {
 

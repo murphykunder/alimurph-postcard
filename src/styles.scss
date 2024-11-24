@@ -35,11 +35,6 @@
     --button-danger-color: #fff;
     --button-danger-border-color: #ff0000;
     --footer-height: 40px;
-    --modal-button-close-size: 1em;
-    --modal-button-close-margin-top: calc(calc(var(--modal-button-close-size) - 0.9em) * -1);
-    --modal-button-close-margin-right: calc(calc(var(--modal-button-close-size) + 0.3em) * -1);
-    --modal-fa-mark-size: calc(var(--modal-button-close-size) - 0.5em);
-
 }
 
 html, body {
@@ -105,31 +100,6 @@ html * {
 
 
 
-.modal-body .button-close {
-    position: absolute;
-    right: var(--modal-button-close-margin-right);
-    top: var(--modal-button-close-margin-top);
-    width: var(--modal-button-close-size);
-    height: var(--modal-button-close-size);
-    border-radius: 100%;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-}
-.modal-body .button-close .fa-xmark {
-    font-size: var(--modal-fa-mark-size);
-    font-weight: var(--modal-fa-mark-size);
-}
-.modal-body .button-close:hover {
-    background-color: rgba($color: #e8e8e8, $alpha: 0.8);
-    color: #000;
-}
-
-
 
 .button-copy-tooltip {
     margin-top: 10px !important;
@@ -155,9 +125,9 @@ html * {
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 
     :root {
-        --global-font-size: 1em;
+        --global-font-size: 0.9em;
     }
 }

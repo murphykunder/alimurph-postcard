@@ -1,6 +1,6 @@
 <form [formGroup]="birthdayForm" novalidate (ngSubmit)="onSubmit()">
 	<label class="form-label form-label-sm" for="message">
-        <i>Note: Avoid using complex emojis as they could be rendered incorrectly in PDF</i>
+        <i>Note: You can align the text to adjust how they appear in the card. Avoid using complex emojis as they could be rendered incorrectly in PDF.</i>
     </label>
     <ckeditor class="ckeditor" [editor]="Editor" formControlName="message" id="message" [config]="config"></ckeditor>
     <div class="ckeditor-message-group my-1">

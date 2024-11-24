@@ -1,11 +1,11 @@
 form {
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
 .form-label-sm {
     line-height: 1.5em;
-    font-size: calc(var(--global-font-size) - 0.1em);
+    font-size: calc(var(--global-font-size) - 0.2em);
 }
 
 :host ::ng-deep .ck-editor__editable_inline {
@@ -21,6 +21,10 @@ form {
 :host ::ng-deep .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_smw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sme, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_s {
     top: auto;
     bottom: 100%;
+}
+
+:host ::ng-deep .ck .ck-placeholder {
+    font-size: calc(var(--global-font-size) - 0.1em) !important;
 }
 
 .ckeditor-message-group {

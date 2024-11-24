@@ -3,17 +3,17 @@
         <h1>Create personalized cards, tailor-made for every occasion, with a heartfelt music and a custom message</h1>
         <div class="postcard-form-nav-tabs">
             <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="progressbar">
-                <li [ngbNavItem]="1" class="active" (click)="onNext()">User details
+                <li [ngbNavItem]="1" class="active">User details
                     <ng-template ngbNavContent>
                         <app-single-card-form-page-1 [birthdayForm]="birthdayForm" (next)="onNext()"/>
                     </ng-template>
                 </li>
-                <li [ngbNavItem]="2" [class.active]="active >= 2" (click)="onNext()">Music
+                <li [ngbNavItem]="2" [class.active]="active >= 2">Music
                     <ng-template ngbNavContent>
                         <app-single-card-form-page-2 [birthdayForm]="birthdayForm" (return)="onReturn()" (next)="onNext()" />
                     </ng-template>
                 </li>
-                <li [ngbNavItem]="3" [class.active]="active >= 3" (click)="onNext()">Message
+                <li [ngbNavItem]="3" [class.active]="active >= 3">Message
                     <ng-template ngbNavContent>
                         <app-single-card-form-page-3 [birthdayForm]="birthdayForm" [isSubmitting]="isSubmitting" [isDownloading]="isDownloading" (exportCard)="exportCard()" (return)="onReturn()" (createCard)="createCard()" />
                     </ng-template>

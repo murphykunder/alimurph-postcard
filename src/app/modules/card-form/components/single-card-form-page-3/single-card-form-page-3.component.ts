@@ -1,4 +1,4 @@
-import {  Component, EventEmitter, Input, Output } from '@angular/core';
+import {  Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { Alignment, Bold, ClassicEditor, Essentials, FontBackgroundColor, FontColor, FontFamily, FontSize, Heading, Italic, Link, Paragraph, Undo, WordCount } from 'ckeditor5';
@@ -13,7 +13,7 @@ import { ConfirmationModalComponent } from '../../../../components/modals/confir
   standalone: true,
   imports: [CKEditorModule, ReactiveFormsModule, FormFieldErrorComponent, NavButtonComponent],
   templateUrl: './single-card-form-page-3.component.html',
-  styleUrl: './single-card-form-page-3.component.scss'
+  styleUrl: './single-card-form-page-3.component.scss',
 })
 export class SingleCardFormPage3Component {
 

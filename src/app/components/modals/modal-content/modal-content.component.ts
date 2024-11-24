@@ -14,7 +14,6 @@ export class ModalContentComponent {
 
   activeModal = inject(NgbActiveModal);
   @Input() cardUrl: string | undefined;
-  @Input() errorMessage: string | undefined;
 
 
   onCopy(tooltip: NgbTooltip){
