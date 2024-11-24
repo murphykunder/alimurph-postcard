@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nav-button',
@@ -12,9 +12,15 @@ export class NavButtonComponent {
 
   @Input() active!: number;
   @Input() isSubmitting: boolean = false;
+  @Input() isDownloading: boolean = false;
   @Output() return = new EventEmitter();
+  @Output() export = new EventEmitter();
 
   onReturn(){
     this.return.emit();
+  }
+
+  onExport(){
+    this.export.emit();
   }
 }

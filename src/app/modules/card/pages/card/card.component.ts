@@ -1,14 +1,13 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { Postcard } from '../../../../services/models';
-import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { Postcard } from '../../../../api/alimurph_postcard_api/models';
 import { ActivatedRoute } from '@angular/router';
 import { AudioService } from '../../../card-form/services/audio.service';
 import { ConfettiService } from '../../services/confetti.service';
 import { CommonModule } from '@angular/common';
-import { PostcardService } from '../../../../services/services';
 import { LetterComponent } from '../../components/letter/letter.component';
 import { FooterComponent } from '../../../../components/footer/footer.component';
-import { ExportService } from '../../services/export.service';
+import { CardService } from '../../../../services/card.service';
+import { FlashMessageService } from '../../../../services/flash-message.service';
 
 @Component({
   selector: 'app-card',
@@ -21,27 +20,34 @@ export class CardComponent implements OnInit {
 
   public envelopeOpen: boolean = false;
   public cardData: Postcard | undefined;
-  public errorMessage: string = 'Error occurred while generating the card. Please check the url and try again!';
+  public errorMessage: string | undefined;
   public cardId: string | undefined;
   public isDownloading: boolean = false;
+  public isCardLoading: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private audioService: AudioService,
     private confettiService: ConfettiService,
-    private postcardService: PostcardService,
-    private exportService: ExportService
+    private cardService: CardService,
+    private flashMessageService: FlashMessageService
   ){}
 
   ngOnInit(): void {
     this.cardId = this.activatedRoute.snapshot.params['id'];
+    this.errorMessage = undefined;
     if(this.cardId){
-      this.postcardService.viewCard({
-        cardId: this.cardId
-      })
+      this.isCardLoading = true;
+
+      this.cardService.getCard(this.cardId)
       .subscribe({
-        next: (response: Postcard) => {
+        next: (response: Postcard|undefined) => {
+          this.isCardLoading = false;
           this.cardData = response;
+        },
+        error: () => {
+          this.isCardLoading = false;
+          this.errorMessage = 'Error occurred while generating the card. Please check the url and try again!';
         }
       });
     }
@@ -65,29 +71,33 @@ export class CardComponent implements OnInit {
 
   openEnvelope(){
     this.envelopeOpen = true;
-    if(this.cardData && this.cardData.audio){
-      this.audioService.playAudio(this.cardData.occasion, this.cardData.audio);
+    if(this.cardData){
+      if(this.cardData.audio)
+        this.audioService.playAudio(this.cardData.occasion, this.cardData.audio);
       this.confettiService.celebrate(this.cardData.occasion);
     }
   }
 
   exportCard(){
-    if(this.cardId){
+    if(this.cardData){
       this.isDownloading = true;
-      const fileName = this.receiverName + "_" + this.occasion + "_" + "card.pdf";
-      this.postcardService.export({
-        cardId: this.cardId
-      })
+      this.cardService.exportCard(this.cardData)
       .subscribe({
-        next: (responseBlob) => {
-          this.exportService.downloadFile(responseBlob, fileName).subscribe({
-            complete: () => this.isDownloading = false
-          });
-        }
-      })
-      ;
+        next: (result: boolean) => {
+          if(!result){
+            this.onError("Error ocurred while generating the Pdf. Please try again after sometime");
+          }
+          this.isDownloading = false;
+        },
+        error: () => {
+          this.isDownloading = false;
+          this.onError("Error ocurred while generating the Pdf. Please try again after sometime");
+        },
+      });
     }
-
   }
 
+  onError(message: string){
+    this.flashMessageService.show({flashMessage: message , className: 'flash-message-error', delay: 5000})
+  }
 }

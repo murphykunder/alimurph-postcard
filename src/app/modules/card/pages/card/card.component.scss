@@ -1,7 +1,14 @@
-.postcard-container {
+.card-wrapper {
+    position: relative;
     min-width: 100vw;
     min-height: 100vh;
+    display: block;
+}
+.postcard-container {
+    width: 100%;
+    height: 100%;
     display: grid;
+    position: absolute;
     grid-template-rows: auto var(--footer-height);
     background-size: 250px;
     background-color: rgba($color: #fff, $alpha: 0.5);
@@ -12,7 +19,7 @@
     background-image: url('../../../../../assets/images/Birthday_Pattern.jpg');
 }
 
-.postcard-container.anniversary { 
+.postcard-container.anniversary {
     background-image: url('../../../../../assets/images/Love_pattern.jpg');
 }
 
@@ -283,11 +290,13 @@ main {
 
 .button-export {
     background-color: #000;
-    color: #fff;
     border-color: #fff;
-    opacity: 0;
-    font-size: calc(var(--global-font-size) - 0.2em);
+    color: #fff;
+    width: 180px;
     padding: 5px 12px;
+    font-size: calc(var(--global-font-size) - 0.2em);
+    opacity: 0;
+    text-align: center;
     animation: btn-export-fade-in 1s 3s ease-in-out forwards;
 }
 .button:hover {
@@ -303,7 +312,6 @@ main {
         opacity: 1;
     }
 }
-
 
 .spinner {
     width: 1em;
@@ -321,6 +329,47 @@ main {
         transform: rotate(360deg);
     }
 }
+
+
+.card-loading, .card-error {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.card-load-spinner {
+    position: relative;
+    display: block;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    background: conic-gradient(#3dffc9, #f7c723, #eb0ea5, #3dffc9);
+    box-shadow: 0 0 150px -75px black;
+    animation: spin 0.8s linear infinite;
+}
+.card-load-spinner::before{
+    content: "";
+    background-color: #fff;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 12px -8px black;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 
 

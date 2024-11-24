@@ -1,0 +1,5 @@
+@for (message of flashMessageService.flashMessages; track message) {
+    <ngb-toast header=" " [class]="message.className" [autohide]="true" [delay]="message.delay || 5000" (hidden)="flashMessageService.remove(message)">
+         {{ message.flashMessage }}
+    </ngb-toast>
+}

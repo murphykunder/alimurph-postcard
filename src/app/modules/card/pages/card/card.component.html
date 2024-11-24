@@ -1,4 +1,20 @@
-<div *ngIf="cardData">
+<div class="card-wrapper">
+    <div *ngIf="isCardLoading; else cardLoadResult">
+        <div class="card-loading">
+            <p class="mb-4">Woohoo!😊 You have received a message. Please wait while we load your card!</p>
+            <p><span class="card-load-spinner"></span></p>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #cardLoadResult>
+        <div class="card-error text-danger" *ngIf="errorMessage; else card">
+            <p>🙁&nbsp;{{errorMessage}}</p>
+        </div>
+</ng-template>
+<ng-template #card>
     <div class="postcard-container" [class.birthday]="occasion=='birthday'" [class.anniversary]="occasion=='anniversary'">
         <main>
             <div class="envelope-wrapper" [class.anniversary]="occasion=='anniversary'" [class.birthday]="occasion=='birthday'">
@@ -27,14 +43,13 @@
             </div>
             <button *ngIf="cardData" type="button" class="button button-export mb-2" (click)="exportCard()">
                 <span *ngIf="!isDownloading; else loading">
-                    <i class="fa-solid fa-download"></i>
+                    <i class="fa-solid fa-download"></i>&nbsp;&nbsp;Download letter
                 </span>
-                &nbsp;&nbsp;Download letter
             </button>
         </main>
         <app-footer />
     </div>
-</div>
+</ng-template>
 <ng-template #loading>
-    <span class="spinner"></span>
+    <span class="spinner"></span>&nbsp;&nbsp;Downloading . . .
 </ng-template>

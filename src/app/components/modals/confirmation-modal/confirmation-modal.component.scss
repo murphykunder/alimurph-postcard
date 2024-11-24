@@ -1,0 +1,16 @@
+.modal-container {
+    padding: 10px;
+}
+.modal-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+.button-container button {
+    padding: 5px 20px;
+}

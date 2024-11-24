@@ -27,7 +27,7 @@
     --global-tertiary-color: #fff;
     --global-button-hover-bg-color: #eaeefe;
     --global-button-hover-color: #6472aa;
-    --global-button-border-radius: 8px;
+    --global-button-border-radius: 6px;
     --button-success-bg-color: #a0ff4e;
     --button-success-color: #3b6319;
     --button-success-border-color: #a0ff4e;
@@ -35,6 +35,10 @@
     --button-danger-color: #fff;
     --button-danger-border-color: #ff0000;
     --footer-height: 40px;
+    --modal-button-close-size: 1em;
+    --modal-button-close-margin-top: calc(calc(var(--modal-button-close-size) - 0.9em) * -1);
+    --modal-button-close-margin-right: calc(calc(var(--modal-button-close-size) + 0.3em) * -1);
+    --modal-fa-mark-size: calc(var(--modal-button-close-size) - 0.5em);
 
 }
 
@@ -48,17 +52,23 @@ html * {
 }
 
 
+.flash-message-error{
+    background-color: #ffece9;
+    color: #d92d2b;
+}
+
 
 /**** Common CSS ****/
 .button {
     background-color: var(--global-secondary-color);
     border: 1px dashed var(--global-secondary-color);
     border-radius: var(--global-button-border-radius);
-    font-size: var(--global-font-size);
+    font-size: calc(var(--global-font-size) - 0.1em);
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0px 10px;
 }
 .button:hover:enabled {
     outline: none;
@@ -69,6 +79,7 @@ html * {
     border-radius: 100%;
     width: calc( var(--global-font-size) + 1.5em );
     height: calc( var(--global-font-size) + 1.5em );
+    font-size: var(--global-font-size);
     padding: 0;
 }
 .button-success {
@@ -92,6 +103,55 @@ html * {
     transform: scale(0.9);
 }
 
+
+
+.modal-body .button-close {
+    position: absolute;
+    right: var(--modal-button-close-margin-right);
+    top: var(--modal-button-close-margin-top);
+    width: var(--modal-button-close-size);
+    height: var(--modal-button-close-size);
+    border-radius: 100%;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+.modal-body .button-close .fa-xmark {
+    font-size: var(--modal-fa-mark-size);
+    font-weight: var(--modal-fa-mark-size);
+}
+.modal-body .button-close:hover {
+    background-color: rgba($color: #e8e8e8, $alpha: 0.8);
+    color: #000;
+}
+
+
+
+.button-copy-tooltip {
+    margin-top: 10px !important;
+}
+.button-copy-tooltip .tooltip-inner {
+    background-color:#d2e6d0;
+    color: #005d00;
+    font-size: 0.9em;
+    padding: 0.2em 0.5em;
+}
+.button-copy-tooltip.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: #d2e6d0;
+}
+.button-copy-tooltip.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color:#d2e6d0;
+}
+.button-copy-tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color:#d2e6d0;
+}
+.button-copy-tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color:#d2e6d0;
+}
 
 
 

@@ -4,6 +4,9 @@ declare interface Env {
   // Replace the following with your own environment variables.
   // Example: NGX_VERSION: string;
   readonly NG_APP_ALIMURPH_POSTCARD_API_URL: string;
+  readonly NG_APP_ALIMURPH_POSTCARD_SECRET_KEY: string;
+  readonly NG_APP_TINYURL_API_KEY: string;
+  readonly NG_APP_TINYURL_API_URL: string;
 }
 
 // Choose how to access the environment variables.

@@ -64,6 +64,8 @@ http://localhost:8088/api/v1/swagger-ui/index.html
         - `ng add @ngx-env/builder`
         - `ng g environments`
         - To configure environment variables for angular application
+    8. cryptoJS
+        - `npm i crypto-js`
 
 
 ## Frontend - Build HttpServices using OpenAPI
@@ -71,7 +73,7 @@ http://localhost:8088/api/v1/swagger-ui/index.html
 - Startup the backend API and open the link "http://localhost:8088/api/v1/swagger-ui/index.html" in browser.
 - Click on "/api/v1/v3/api-docs" link. This will display the openapi specification. Click on "Pretty print". Copy this data and paste in the "openapi.json" file.
 - Install package https://www.npmjs.com/package/ng-openapi-gen . This project is a NPM module that generates model interfaces and web service clients from the OpenApi 3 specification we mentioned in the `openapi.json` file. **Ensure to use the correct version compatible with angular version of the app.**
-- In package.json file, under scripts, add the line `"api-gen": "ng-openapi-gen --input ./src/app/openapi/openapi.json --output ./src/app/services"`
+- In package.json file, under scripts, add the line `"api-gen": "ng-openapi-gen --input ./src/app/openapi/openapi.json --output ./src/app/api/services"`
 - This command will read the openApi specification from `openapi.json` file and will generate the required models and services in the  "services" folder in the project.
 - Once all the services are created, for them to work they will need HttpClient. Update the app.config.ts file to include `provideHttpClient()` provider.
 

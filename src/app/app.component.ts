@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PostcardService } from './services/services';
+import { PostcardService } from './api/alimurph_postcard_api/services';
+import { FlashMessageContainerComponent } from './components/flash-message-container/flash-message-container.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FlashMessageContainerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

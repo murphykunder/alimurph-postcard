@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenApi Specification - AliMurph-Postcard",
+    "description": "OpenApi documentation for Alimurph-Postcard",
+    "termsOfService": "Terms of Service",
+    "contact": {
+      "name": "Alimurph-Postcard"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8088/api/v1",
+      "description": "Local environment"
+    }
+  ],
+  "paths": {
+    "/postcard/export": {
+      "post": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "export",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Postcard"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/postcard/status": {
+      "get": {
+        "tags": [
+          "Postcard"
+        ],
+        "operationId": "getStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Postcard": {
+        "required": [
+          "from",
+          "message",
+          "occasion",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "occasion": {
+            "type": "string"
+          },
+          "audio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Postcard } from '../../../../services/models';
+import { Postcard } from '../../../../api/alimurph_postcard_api/models';
 import { CakeComponent } from '../cake/cake.component';
 
 @Component({

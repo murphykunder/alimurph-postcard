@@ -7,5 +7,5 @@
         <app-form-field-error [control]="message" [isFormSubmitted]="isSubmitted" />
         <p class="message-count">Characters: {{ this.messageCharacterCount }}</p>
     </div>
-    <app-nav-button [active]="3" [isSubmitting]="isSubmitting" (return)="onReturn()"/>
+    <app-nav-button [active]="3" [isSubmitting]="isSubmitting" [isDownloading]="isDownloading" (export)="onExport()" (return)="onReturn()"/>
 </form>

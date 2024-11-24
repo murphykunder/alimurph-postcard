@@ -1,0 +1,35 @@
+.toast-header {
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+}
+
+.toast-header .btn-close {
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    font-size: 8px;
+    border-radius: 100%;
+    background: none;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toast-header .btn-close:before {
+    font-family: 'Font Awesome 6 Free';
+    font: var(--fa-font-solid);
+    content:'\f00d'
+}
+.toast-header .btn-close:hover {
+    background-color: #fff;
+    color:#000;
+}
+.toast-header .btn-close:focus {
+    outline: none;
+    box-shadow: none;
+}

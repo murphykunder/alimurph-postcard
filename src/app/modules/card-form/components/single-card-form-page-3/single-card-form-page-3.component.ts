@@ -6,7 +6,7 @@ import { FormFieldErrorComponent } from '../form-field-error/form-field-error.co
 import { NavButtonComponent } from '../nav-button/nav-button.component';
 import { ckEditorMaxLength, ckEditorMinLength } from '../../validators/ckeditor.validator';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmationModalComponent } from '../modals/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalComponent } from '../../../../components/modals/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-single-card-form-page-3',
@@ -19,8 +19,10 @@ export class SingleCardFormPage3Component {
 
   @Input() birthdayForm!: FormGroup;
   @Input() isSubmitting: boolean = false;
+  @Input() isDownloading: boolean = false;
   @Output() return = new EventEmitter();
   @Output() createCard = new EventEmitter();
+  @Output() exportCard = new EventEmitter();
   public isSubmitted: boolean = false;
   public messageCharacterCount: number = 0;
   public messageMinLength: number = 8;
@@ -86,6 +88,13 @@ export class SingleCardFormPage3Component {
       this.return.emit();
     }
 
+  }
+
+  onExport(){
+    this.isSubmitted = true;
+    if(this.birthdayForm.valid){
+      this.exportCard.emit();
+    }
   }
 
   onSubmit(){
