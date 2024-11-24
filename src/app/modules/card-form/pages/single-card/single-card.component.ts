@@ -41,7 +41,9 @@ export class SingleCardComponent{
   }
 
   onNext() {
-    this.active += 1;
+    if(this.active < 3) {
+      this.active += 1;
+    }
   }
 
   onReturn() {

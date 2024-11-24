@@ -35,7 +35,10 @@ http://localhost:8088/api/v1/swagger-ui/index.html
 
 * Steps to run the frontend locally:
     1. Open the project in command terminal.
-    2. Setup environment variable: `NG_APP_ALIMURPH_POSTCARD_API_URL` = backend api url ex: http://localhost:8088/api/v1
+    2. Setup environment variable: 
+        - `NG_APP_ALIMURPH_POSTCARD_API_URL` = backend api url ex: http://localhost:8088/api/v1
+        - `NG_APP_TINYURL_API_KEY` = Bearer token to connect to TinyUrl Api
+        - `NG_APP_TINYURL_API_URL` = TinyUrl API url
     2. Run `npm install` followed by `npm run start`.
 
 * Packages installed
