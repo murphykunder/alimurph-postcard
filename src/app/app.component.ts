@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { PostcardService } from './api/alimurph_postcard_api/services';
 import { FlashMessageContainerComponent } from './components/flash-message-container/flash-message-container.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,8 +20,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // backend hosted on render.com which tends to spin down free instances which do not receive requests for more than 15 mins. The free instance takes approx 1 min to start up.
     // To prevent slowness trigger call to backend when any page loads
-      this.postcardService.getStatus().subscribe({
-        next: (response: any) => console.log(response)
-      })
+    this.postcardService.getStatus().subscribe({
+      next: (response: any) => console.log(response)
+    })
   }
 }
