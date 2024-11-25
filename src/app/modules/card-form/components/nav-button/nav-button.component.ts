@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-nav-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgbTooltip],
   templateUrl: './nav-button.component.html',
-  styleUrl: './nav-button.component.scss'
+  styleUrl: './nav-button.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class NavButtonComponent {
 

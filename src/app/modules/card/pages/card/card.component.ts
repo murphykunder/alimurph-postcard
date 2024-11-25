@@ -8,11 +8,12 @@ import { LetterComponent } from '../../components/letter/letter.component';
 import { FooterComponent } from '../../../../components/footer/footer.component';
 import { CardService } from '../../../../services/card.service';
 import { FlashMessageService } from '../../../../services/flash-message.service';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule, LetterComponent, FooterComponent],
+  imports: [CommonModule, LetterComponent, FooterComponent, NgbTooltip],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

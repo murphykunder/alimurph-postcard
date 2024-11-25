@@ -5,7 +5,16 @@
     <div class="d-flex justify-content-end">
         <ng-container *ngIf="active==3; else displayNext">
             <div class="d-flex justify-content-evenly gap-2 flex-wrap">
-                <button class="button button-success" type="button" (click)="onExport()">
+                <button class="button button-success" type="button" (click)="onExport()"
+                    [disableTooltip]="!isDownloading"
+                    ngbTooltip="PDF generation could take sometime. Please wait..."
+                    [openDelay]="1000"
+                    [autoClose]="false"
+                    [closeDelay]="500"
+                    triggers="click:blur"
+                    tooltipClass="btn-export-tooltip"
+                    placement="bottom"
+                >
                     <span *ngIf="!isDownloading; else loading">
                         <i class="fa-solid fa-download"></i>
                     </span>

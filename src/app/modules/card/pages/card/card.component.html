@@ -41,7 +41,16 @@
                     <i class="fa-solid" [class.fa-heart]="occasion=='anniversary'" [class.fa-certificate]="occasion=='birthday'"></i>
                 </button>
             </div>
-            <button *ngIf="cardData" type="button" class="button button-export mb-2" (click)="exportCard()">
+            <button *ngIf="cardData" type="button" class="button button-export mb-2" (click)="exportCard()"
+                ngbTooltip="PDF generation could take sometime. Please wait..."
+                [disableTooltip]="!isDownloading"
+                [openDelay]="1000"
+                [closeDelay]="500"
+                [autoClose]="false"
+                triggers="click:blur"
+                tooltipClass="btn-export-tooltip"
+                placement="top"
+            >
                 <span *ngIf="!isDownloading; else loading">
                     <i class="fa-solid fa-download"></i>&nbsp;&nbsp;Download letter
                 </span>

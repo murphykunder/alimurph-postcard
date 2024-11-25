@@ -24,7 +24,7 @@ form {
 }
 
 :host ::ng-deep .ck .ck-placeholder {
-    font-size: calc(var(--global-font-size) - 0.1em) !important;
+    font-size: calc(var(--global-font-size) - 0.05em) !important;
 }
 
 .ckeditor-message-group {

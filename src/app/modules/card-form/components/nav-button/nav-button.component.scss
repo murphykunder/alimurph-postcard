@@ -9,6 +9,26 @@
     font-size: calc(var(--global-font-size) - 0.2em);
 }
 
+.btn-export-tooltip .tooltip-inner {
+    background-color: #fff;
+    font-size: calc(var(--global-font-size) - 0.1em);
+    color: #000;
+    width: fit-content;
+}
+.btn-export-tooltip.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: #fff;
+}
+.btn-export-tooltip.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: #fff;
+}
+.btn-export-tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: #fff;
+}
+.btn-export-tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: #fff;
+}
+
+
 .spinner {
     width: 1em;
     height: 1em;
