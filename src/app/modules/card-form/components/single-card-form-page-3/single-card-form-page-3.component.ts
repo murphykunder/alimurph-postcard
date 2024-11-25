@@ -51,6 +51,12 @@ export class SingleCardFormPage3Component {
             32
         ]
       },
+	  fontColor: {
+            colorPicker: {
+                // Use 'hex' format for output instead of 'hsl'.
+                format: 'hex'
+            }
+        },
       plugins: [
           Bold, Essentials, Italic, Paragraph, Undo, Alignment, FontBackgroundColor, FontColor, FontFamily, FontSize , Heading, Link, WordCount
       ],
