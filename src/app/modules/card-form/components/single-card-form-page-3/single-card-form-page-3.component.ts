@@ -26,7 +26,7 @@ export class SingleCardFormPage3Component {
   public isSubmitted: boolean = false;
   public messageCharacterCount: number = 0;
   public messageMinLength: number = 8;
-  public messageMaxLength: number = 1400;
+  public messageMaxLength: number = 1500;
   public Editor = ClassicEditor;
 
   constructor(
