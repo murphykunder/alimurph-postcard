@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Postcard } from '../../../../api/alimurph_postcard_api/models';
 import { ActivatedRoute } from '@angular/router';
 import { AudioService } from '../../../card-form/services/audio.service';
@@ -9,13 +9,15 @@ import { FooterComponent } from '../../../../components/footer/footer.component'
 import { CardService } from '../../../../services/card.service';
 import { FlashMessageService } from '../../../../services/flash-message.service';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { View } from 'ckeditor5';
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [CommonModule, LetterComponent, FooterComponent, NgbTooltip],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrl: './card.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
 
