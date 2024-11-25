@@ -19,7 +19,7 @@
     background-color: var(--global-primary-color);
     color: var(--global-tertiary-color);
     z-index: 0;
-    padding: 2em;
+    padding: 2em 1em;
 }
 
 .single-card-form > h1 {
@@ -154,7 +154,6 @@
         background-color: var(--global-primary-color);
         color: var(--global-tertiary-color);
         z-index: 0;
-        // padding: 4%;
     }
 
 }
