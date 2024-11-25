@@ -13,18 +13,8 @@ form {
     color: black;
     font-size: var(--global-font-size);
 }
-
-:host ::ng-deep .ck.ck-editor {
-    display: flex;
-    flex-direction: column-reverse;
-}
-:host ::ng-deep .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_smw, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sme, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_s {
-    top: auto;
-    bottom: 100%;
-}
-
 :host ::ng-deep .ck .ck-placeholder {
-    font-size: calc(var(--global-font-size) - 0.05em) !important;
+    font-size: calc(var(--global-font-size) - 0.03em) !important;
 }
 
 .ckeditor-message-group {
