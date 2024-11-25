@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
 import { SingleCardComponent } from './pages/single-card/single-card.component';
 import { GroupCardComponent } from './pages/group-card/group-card.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
         {
             path: 'group-card',
             component: GroupCardComponent
+        },
+        {
+          path: 'about',
+          component: AboutComponent
         }
     ]
   },
