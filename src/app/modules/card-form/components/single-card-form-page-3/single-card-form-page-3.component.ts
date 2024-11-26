@@ -1,12 +1,62 @@
-import {  Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {  Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { Alignment, Bold, ClassicEditor, Essentials, FontBackgroundColor, FontColor, FontFamily, FontSize, Heading, Italic, Link, Paragraph, Undo, WordCount } from 'ckeditor5';
+import { Alignment, Bold, ClassicEditor, ColorPickerConfig, Essentials, FontBackgroundColor, FontColor, FontFamily, FontSize, Heading, Italic, Link, Paragraph, Undo, WordCount } from 'ckeditor5';
 import { FormFieldErrorComponent } from '../form-field-error/form-field-error.component';
 import { NavButtonComponent } from '../nav-button/nav-button.component';
 import { ckEditorMaxLength, ckEditorMinLength } from '../../validators/ckeditor.validator';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from '../../../../components/modals/confirmation-modal/confirmation-modal.component';
+
+
+const colorPickerConfig: false | ColorPickerConfig | undefined = {
+  format: 'hex'
+};
+
+const editorColors = [
+  {
+    color: '#ff0000',
+    label: 'Red'
+  },
+  {
+    color: '#ff8c00',
+    label: 'Orange'
+  },
+  {
+    color: '#e1ff00',
+    label: 'Yellow'
+  },
+  {
+    color: '#44ff00',
+    label: 'Green'
+  },
+  {
+    color: '#00f7ff',
+    label: 'Light Blue'
+  },
+  {
+    color: '#0016de',
+    label: 'Dark blue'
+  },
+  {
+    color: '#a600ff',
+    label: 'Purple'
+  },
+  {
+    color: '#f700f3',
+    label: 'Purple'
+  },
+  {
+    color: '#ffffff',
+    label: 'White'
+  },
+  {
+    color: '#000000',
+    label: 'Black'
+  }
+];
+
+
 
 @Component({
   selector: 'app-single-card-form-page-3',
@@ -28,6 +78,7 @@ export class SingleCardFormPage3Component {
   public messageMinLength: number = 8;
   public messageMaxLength: number = 1500;
   public Editor = ClassicEditor;
+
 
   constructor(
     private modalService: NgbModal
@@ -51,12 +102,14 @@ export class SingleCardFormPage3Component {
             32
         ]
       },
-	  fontColor: {
-            colorPicker: {
-                // Use 'hex' format for output instead of 'hsl'.
-                format: 'hex'
-            }
-        },
+      fontColor: {
+        colors: editorColors,
+        colorPicker: colorPickerConfig
+      },
+      fontBackgroundColor: {
+        colors: editorColors,
+        colorPicker: colorPickerConfig
+      },
       plugins: [
           Bold, Essentials, Italic, Paragraph, Undo, Alignment, FontBackgroundColor, FontColor, FontFamily, FontSize , Heading, Link, WordCount
       ],
