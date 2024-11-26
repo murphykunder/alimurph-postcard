@@ -46,8 +46,8 @@
                 [disableTooltip]="!isDownloading"
                 [openDelay]="1000"
                 [closeDelay]="500"
-                [autoClose]="!isDownloading"
-                triggers="click"
+                [autoClose]="true"
+                triggers="click:blur"
                 tooltipClass="btn-export-tooltip"
                 placement="top"
             >

@@ -9,9 +9,9 @@
                     [disableTooltip]="!isDownloading"
                     ngbTooltip="PDF generation could take sometime. Please wait..."
                     [openDelay]="1000"
-                    [autoClose]="!isDownloading"
+                    [autoClose]="true"
                     [closeDelay]="500"
-                    triggers="click"
+                    triggers="click:blur"
                     tooltipClass="btn-export-tooltip"
                     placement="bottom"
                 >
