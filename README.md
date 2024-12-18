@@ -98,6 +98,6 @@ http://localhost:8088/api/v1/swagger-ui/index.html
             backend_api_url: import.meta.env.NG_APP_ALIMURPH_POSTCARD_API_URL
         };
 
-## Deply backend on Render
+## Deployed backend on Render
 
-## Deplor frontend on Vercel
+## Deployed frontend on Vercel
